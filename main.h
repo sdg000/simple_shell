@@ -1,5 +1,5 @@
-#ifndef LIST_H
-#define LIST_H
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdio.h>
 #define UNUSED(x) (void)(x)
@@ -35,4 +35,4 @@ char *_strdup(char *src);
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void assign_lineptr(char **lineptr, size_t *n, char *buffer, size_t b);
-#endif
+#endif /* MAIN_H */
