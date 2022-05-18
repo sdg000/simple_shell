@@ -9,6 +9,7 @@
  * _arguments - a function
  * @str: string of characters
  * @arglist: the list of list argument
+ * @seperator: seperates strings
  * Return: the chaine
  */
 
