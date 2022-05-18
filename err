@@ -1,0 +1,21 @@
+#ERROR FILE
+add_nodeinstruction_end.c: In function ‘add_nodeinstruction_end’:
+add_nodeinstruction_end.c:32:43: error: passing argument 1 of ‘_strlen’ makes pointer from integer without a cast [-Werror=int-conversion]
+   32 |  new->str = malloc(sizeof(char) * _strlen(str));
+      |                                           ^~~
+      |                                           |
+      |                                           char
+In file included from add_nodeinstruction_end.c:14:
+main.h:24:19: note: expected ‘char *’ but argument is of type ‘char’
+   24 | int _strlen(char *s);
+      |             ~~~~~~^
+add_nodeinstruction_end.c:37:11: error: assignment to ‘char *’ from ‘char’ makes pointer from integer without a cast [-Werror=int-conversion]
+   37 |  new->str = str;
+      |           ^
+add_nodeinstruction_end.c:46:7: error: assignment to ‘instruction_l *’ {aka ‘struct list_instructions *’} from incompatible pointer type ‘struct list_intructions *’ [-Werror=incompatible-pointer-types]
+   46 |   ptr = ptr->next;
+      |       ^
+add_nodeinstruction_end.c:47:12: error: assignment to ‘struct list_intructions *’ from incompatible pointer type ‘instruction_l *’ {aka ‘struct list_instructions *’} [-Werror=incompatible-pointer-types]
+   47 |  ptr->next = new;
+      |            ^
+cc1: all warnings being treated as errors
