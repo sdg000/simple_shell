@@ -17,7 +17,7 @@ char **_arguments(char *str, char **arglist, const char *seperator)
 {
 	char *cmd = _strdup(str);
 	char *arg;
-	/*const char *separator = " ";*/
+	const char *separator = " ";
 	int i = 0;
 
 	arg = _strtok(cmd, separator);
