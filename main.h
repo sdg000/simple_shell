@@ -2,37 +2,33 @@
 #define MAIN_H
 
 #include <stdio.h>
-#define UNUSED(x) (void)(x)
-#define MAX_LINE 2024
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
+#include <errno.h>
 
-
-/**
- * struct instruction_l - instruction linked list
- * @str: the string
- * @next: point to the nex node
- *
- * Description: instruction linked list node structure
- * for holberton project
- */
-typedef struct instruction_l
-{
-	char *str;
-	struct instruction_l *next;
-} instruction_l;
-
-int _putchar(char c);
-int _strlen(char *s);
-void _puts(char *str);
+int lsh_ctrld(char **args);
+int lsh_cd(char **args);
+int lsh_help(char **args);
+extern char **environ;
+int lsh_exit(char **args);
 int _strcmp(char *s1, char *s2);
-void _executecmd(char **cmd, int argc, char **argv, char **env);
-void ft_putnbr(int nb);
+size_t _strncmp(char *s1, char *s2, size_t n);
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
-char *_strtok(char *str, const char *delim);
-ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
-instruction_l *add_nodeinstruction_end(instruction_l **head, char *str);
-instruction_l **list_instrctions(instruction_l **head, char *str);
-char *_strdup(char *src);
+int _putchar(char c);
 
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-void assign_lineptr(char **lineptr, size_t *n, char *buffer, size_t b);
+char *_get_path(char **env);
+int _values_path(char **arg, char **env);
+char *_getline_command(void);
+void _getenv(char **env);
+char **tokenize(char *lineptr);
+void _exit_command(char **args, char *lineptr, int _exit);
+int _fork_fun(char **arg, char **av, char **env, char *lineptr, int np, int c);
+
+
 #endif /* MAIN_H */
