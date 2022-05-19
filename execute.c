@@ -42,19 +42,20 @@ void shell_1_0(char *cmd, char **env)
 
 void	_executecmd(char **cmd, int argc, char **argv, char **env)
 {
-	int status;
+	int status, i = 0, exec_ret = 0;
 	pid_t pid = 0;
-	int exec_ret = 0;
 	char *cmdsrc;
-	int i = 0;
 
 	shell_1_0(cmd[0], env);
 	cmdsrc = (char *) malloc((_strlen(cmd[0]) + 6) * sizeof(char));
-	cmdsrc = _strcat(cmdsrc, "/bin/");
-	cmdsrc = _strcat(cmdsrc, cmd[0]);
-
+	if (strncmp("/bin/", cmd[0], 5) != 0)
+	{
+		cmdsrc = _strcat(cmdsrc, "/bin/");
+		cmdsrc = _strcat(cmdsrc, cmd[0]);
+	}
+	else
+		cmdsrc = _strcat(cmdsrc, cmd[0]);
 	pid = fork();
-
 	if (pid < 0)
 	{
 		perror("Error:");
@@ -74,7 +75,6 @@ void	_executecmd(char **cmd, int argc, char **argv, char **env)
 	{
 		wait(&status);
 	}
-
 	while (cmd[i] != NULL)
 	{
 		free(cmd[i]);
