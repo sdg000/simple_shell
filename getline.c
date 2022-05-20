@@ -1,14 +1,15 @@
-#include "main.h"
-#include <errno.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "shell.h"
+
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void assign_lineptr(char **lineptr, size_t *n, char *buffer, size_t b);
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 
 /**
  * _realloc - Reallocates a memory block using malloc and free.
  * @ptr: A pointer to the memory previously allocated.
  * @old_size: The size in bytes of the allocated space for ptr.
  * @new_size: The size in bytes for the new memory block.
+ *
  * Return: If new_size == old_size - ptr.
  *         If new_size == 0 and ptr is not NULL - NULL.
  *         Otherwise - a pointer to the reallocated memory block.
@@ -81,20 +82,19 @@ void assign_lineptr(char **lineptr, size_t *n, char *buffer, size_t b)
 	}
 	else
 	{
-		strcpy(*lineptr, buffer);
+		_strcpy(*lineptr, buffer);
 		free(buffer);
 	}
 }
 
 /**
- * _getline - a function ...
- * @lineptr: the chaine
- * @n: the number
- * @stream: the File
+ * _getline - Reads input from a stream.
+ * @lineptr: A buffer to store the input.
+ * @n: The size of lineptr.
+ * @stream: The stream to read from.
  *
- * Return: 1 or 0
+ * Return: The number of bytes read.
  */
-
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 {
 	static ssize_t input;
@@ -107,6 +107,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 	else
 		return (-1);
 	input = 0;
+
 	buffer = malloc(sizeof(char) * 120);
 	if (!buffer)
 		return (-1);
@@ -124,8 +125,10 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 			input++;
 			break;
 		}
+
 		if (input >= 120)
 			buffer = _realloc(buffer, input, input + 1);
+
 		buffer[input] = c;
 		input++;
 	}
