@@ -125,7 +125,7 @@ char *error_2_syntax(char **args);
 char *error_126(char **args);
 char *error_127(char **args);
 
-typedef struct instruction_l
+typedef struct instrction_l
 {
         char *str;
         struct instruction_l *next;
@@ -137,8 +137,8 @@ void free_alias_list(alias_t *head);
 list_t *add_node_end(list_t **head, char *dir);
 void free_list(list_t *head);
 
-instruction_l *add_nodeinstruction_end(instruction_l **head, char *str);
-instruction_l **list_instrctions(instruction_l **head, char *str);
+instruction_l *add_nodeinstrction_end(instruction_l **head, char *str);
+instruction_l **list_instrctions(instrction_l **head, char *str);
 
 void help_all(void);
 void help_alias(void);

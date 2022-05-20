@@ -12,11 +12,11 @@
  * Return: 1 or 0
  */
 
-instruction_l *add_nodeinstruction_end(instruction_l **head, char *str)
+instruction_l *add_nodeinstrction_end(instrction_l **head, char *str)
 {
-	instruction_l *new, *ptr = *head;
+	instrction_l *new, *ptr = *head;
 
-	new =  malloc(sizeof(instruction_l));
+	new =  malloc(sizeof(instrction_l));
 	/*new->str = malloc(sizeof(char) * _strlen(str));*/
 	new->str = strdup(str);
 
