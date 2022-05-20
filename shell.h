@@ -3,7 +3,7 @@
 
 /*
  * File: shell.h
- * Auth: Assisted Research
+ * Auth: Assisted Research/ Collaborative efforts
  *       Assisted Research
  */
 
@@ -26,6 +26,10 @@ extern char **environ;
 char *name;
 /* Global history counter */
 int hist;
+
+/*print functions*/
+int _putchar(char c);
+void _puts(char *str);
 
 /**
  * struct list_s - A new struct type defining a linked list.
@@ -132,7 +136,6 @@ alias_t *add_alias_end(alias_t **head, char *name, char *value);
 void free_alias_list(alias_t *head);
 list_t *add_node_end(list_t **head, char *dir);
 void free_list(list_t *head);
-void _puts(char *str);
 
 instruction_l *add_nodeinstruction_end(instruction_l **head, char *str);
 instruction_l **list_instrctions(instruction_l **head, char *str);
