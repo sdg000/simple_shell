@@ -3,20 +3,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 /**
  * add_nodeinstruction_end - a function ...
- * @head: the list
- * @str: the chaine
+ * @head: list
+ * @str: string
  *
  * Return: 1 or 0
  */
 
-instruction_l *add_nodeinstrction_end(instrction_l **head, char *str)
+instruction_l *add_nodeinstruction_end(instruction_l **head, char *str)
 {
-	instrction_l *new, *ptr = *head;
+	instruction_l *new, *ptr = *head;
 
-	new =  malloc(sizeof(instrction_l));
+	new =  malloc(sizeof(instruction_l));
 	/*new->str = malloc(sizeof(char) * _strlen(str));*/
 	new->str = strdup(str);
 
@@ -36,3 +35,4 @@ instruction_l *add_nodeinstrction_end(instrction_l **head, char *str)
 	ptr->next = new;
 	return (new);
 }
+
