@@ -128,8 +128,8 @@ char *error_127(char **args);
 typedef struct instrction_l
 {
         char *str;
-        struct instruction_l *next;
-} instruction_l;
+        struct instrction_l *next;
+} instrction_l;
 
 /* Linkedlist Helpers */
 alias_t *add_alias_end(alias_t **head, char *name, char *value);
@@ -137,8 +137,8 @@ void free_alias_list(alias_t *head);
 list_t *add_node_end(list_t **head, char *dir);
 void free_list(list_t *head);
 
-instruction_l *add_nodeinstrction_end(instruction_l **head, char *str);
-instruction_l **list_instrctions(instrction_l **head, char *str);
+instruction_l *add_nodeinstrction_end(instrction_l **head, char *str);
+instruction_l **list_instrctions(instruction_l **head, char *str);
 
 void help_all(void);
 void help_alias(void);
